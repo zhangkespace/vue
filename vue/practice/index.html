@@ -15,6 +15,11 @@
             <todo-item v-for="item in groceryList" v-bind:todo="item" v-bind:key="item.id">
             </todo-item>
         </ol>
+        <p v-html="rawHtml"></p>
+        <button type="button" v-bind:disabled="btnDisabled">确定</button>
+        <div>{{firstName}}</div>
+        <div>{{lastName}}</div>
+        <div>{{fullName}}</div>
     </div>
 </body>
 <script type="text/javascript" src="index.js"></script>
