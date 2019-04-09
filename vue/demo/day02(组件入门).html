@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <link rel="stylesheet" href="">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 所有有关vue的代码必须放在app中, 包括自定义组件 -->
+        <!-- <ul>
+            <todo></todo>
+        </ul> -->
+        <ol>
+            <todo-item v-for="item in groceryList" v-bind:todo="item" v-bind:key="item.id">
+            </todo-item>
+        </ol>
+    </div>
+</body>
+<script type="text/javascript">
+// 组件的定义一定要在app初始化之前
+// Vue.component("todo", {
+//     template: "<li>这是个待办项</li>"
+// })
+Vue.component('todo-item', {
+  props: ['todo'],
+  template: '<li>{{ todo.text }}</li>'
+})
+
+var app = new Vue({
+    el: "#app",
+    data: {
+      groceryList: [
+      { id: 0, text: '蔬菜' },
+      { id: 1, text: '奶酪' },
+      { id: 2, text: '随便其它什么人吃的东西' }
+    ]
+    }
+});
+</script>
+
+</html>

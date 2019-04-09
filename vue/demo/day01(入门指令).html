@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <link rel="stylesheet" href="">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <div>{{message}}</div>
+        <div v-bind:title="message">鼠标悬停可以查看title消息</div>
+        <div v-bind:class="className" v-bind:style="style">class name和样式是动态绑定的</div>
+        <div v-if="seen">我是可以动态切换显示/隐藏的</div>
+        <div v-for="item in cities">{{item.text}}</div>
+        <div v-on:click="handleGoResetText">{{clickMe}}</div>
+        <input type="text" v-model="inputVal">
+        <span>{{inputVal}}</span>
+    </div>
+</body>
+<script type="text/javascript">
+    var app = new Vue({
+      el: "#app",
+      data: {
+        message: "hello vue",
+        className: "test",
+        style: "color: red; font-weight: bold",
+        seen: true,
+        cities: [
+          {text: "北京"},
+          {text: "上海"},
+          {text: "广州"}
+        ],
+        clickMe: "点我试试",
+        inputVal: "我是input的初始值"
+      },
+      // 注意methods不属于data的属性，它是一个新的对象
+      methods: {
+          handleGoResetText: function() {
+            this.clickMe = "谢谢你的点击";
+          }
+        }
+    })
+</script>
+
+</html>
